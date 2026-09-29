@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PocketSmart AI - Home Planner</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .container { max-width: 600px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; font-weight: bold; }
+        .result { margin-top: 20px; white-space: pre-wrap; background: #eef; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>PocketSmart AI: Home Interior Planner</h2>
+        <form action="/home-budget" method="post">
+            <label>Budget (INR):</label>
+            <input type="number" name="budget" placeholder="e.g. 50000" required>
+            
+            <label>Room Type:</label>
+            <input type="text" name="room_type" placeholder="e.g. Living Room, Bedroom" required>
+            
+            <button type="submit">Generate Plan</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h3>Recommendations:</h3>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
